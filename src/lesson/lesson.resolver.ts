@@ -1,7 +1,7 @@
 import { Resolver , Query} from "@nestjs/graphql";
 import { LessonType } from "./lesson.type";
 
-@Resolver(of => LessonType)
+@Resolver((_of: any) => LessonType)
 export class LessonResolver {
 
     @Query(_returns => LessonType)
@@ -9,7 +9,7 @@ export class LessonResolver {
         return {
             id: 1,
             name: "front-end",
-            startDate: (new Date()).toISOString(), // Corrected spelling from stateDate to startDate
+            startDate: (new Date()).toISOString(), 
             endDate: (new Date()).toISOString()
         };
     }
